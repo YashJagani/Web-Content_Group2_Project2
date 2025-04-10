@@ -97,7 +97,7 @@
             meta.data.forEach(point => {
               const x = point.x;
               const y = point.y;
-              const bottom = chartArea.bottom; // ✅ Correct bottom of chart area
+              const bottom = chartArea.bottom; 
   
               ctx.beginPath();
               ctx.moveTo(x, bottom);
