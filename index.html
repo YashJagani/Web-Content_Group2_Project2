@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Population Charts of Kitchener-Cambridge-Waterloo</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Population of Kitchener-Cambridge-Waterloo (2001-2011)</h1>
+
+    <div class="button-group">
+      <button id="showLineChart" class="active">Line</button>
+      <button id="showBarChart">Bar</button>
+      <button id="showPieChart">Pie</button>
+    </div>
+
+    <canvas id="populationChart" class="chart-canvas"></canvas>
+    <div class="loader" id="loader">Loading data...</div>
+  </div>
+
+  <script>
+    function loadScript(file) {
+      if (window.populationChart && typeof window.populationChart.destroy === "function") {
+        window.populationChart.destroy();
+      }
+
+      const oldScript = document.getElementById('dynamicScript');
+      if (oldScript) oldScript.remove();
+
+      const script = document.createElement('script');
+      script.src = file;
+      script.id = 'dynamicScript';
+      document.body.appendChild(script);
+    }
+
+    loadScript('js/lineChart.js');
+
+    const chartButtons = {
+      showLineChart: 'js/lineChart.js',
+      showBarChart: 'js/barChart.js',
+      showPieChart: 'js/pieChart.js',
+    };
+
+    for (const id in chartButtons) {
+      document.getElementById(id).addEventListener("click", () => {
+        loadScript(chartButtons[id]);
+        setActive(id);
+      });
+    }
+
+    function setActive(activeId) {
+      document.querySelectorAll(".button-group button").forEach(btn => btn.classList.remove("active"));
+      document.getElementById(activeId).classList.add("active");
+    }
+  </script>
+</body>
+
+</html>
