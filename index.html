@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <title>Population Charts of Kitchener-Cambridge-Waterloo</title>
+  <title>Population Charts - Kitchener-Cambridge-Waterloo</title>
   <link rel="stylesheet" href="css/styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
-  <div class="container">
-    <h1>Population of Kitchener-Cambridge-Waterloo (2001-2011)</h1>
-
-    <div class="button-group">
-      <button id="showLineChart" class="active">Line</button>
-      <button id="showBarChart">Bar</button>
-      <button id="showPieChart">Pie</button>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-brand">Population Charts</div>
+      <ul class="navbar-buttons">
+        <li><button id="showLineChart" class="active">Line</button></li>
+        <li><button id="showBarChart">Bar</button></li>
+        <li><button id="showPieChart">Pie</button></li>
+        <li><button id="showDoughnutChart">Doughnut</button></li>
+        <li><button id="showRadarChart">Radar</button></li>
+        <li><button id="showPolarChart">Polar Area</button></li>
+        <li><button id="showLollipopChart">Lollipop</button></li>
+      </ul>
     </div>
+  </nav>
 
+  <div class="container">
+    <h1>Population of Kitchener-Cambridge-Waterloo (2001–2011)</h1>
     <canvas id="populationChart" class="chart-canvas"></canvas>
     <div class="loader" id="loader">Loading data...</div>
   </div>
@@ -43,6 +49,10 @@
       showLineChart: 'js/lineChart.js',
       showBarChart: 'js/barChart.js',
       showPieChart: 'js/pieChart.js',
+      showDoughnutChart: 'js/doughnutChart.js',
+      showRadarChart: 'js/radarChart.js',
+      showPolarChart: 'js/polarChart.js',
+      showLollipopChart: 'js/lollipopChart.js'
     };
 
     for (const id in chartButtons) {
@@ -53,10 +63,9 @@
     }
 
     function setActive(activeId) {
-      document.querySelectorAll(".button-group button").forEach(btn => btn.classList.remove("active"));
+      document.querySelectorAll(".navbar-buttons button").forEach(btn => btn.classList.remove("active"));
       document.getElementById(activeId).classList.add("active");
     }
   </script>
 </body>
-
 </html>
