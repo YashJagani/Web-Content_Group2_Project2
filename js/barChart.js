@@ -52,10 +52,10 @@
         data: {
           labels: result.labels,
           datasets: [{
-            label: `Population of ${cityName} (2001–2011)`,
+            label: `Population of ${cityName} (2001-2011)`,
             data: result.data,
-            backgroundColor: 'rgba(255, 99, 132, 0.6)',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(22, 74, 18, 0.6)',
+            borderColor: 'rgba(22, 74, 18, 0.6)',
             borderWidth: 1
           }]
         },
@@ -65,14 +65,22 @@
             x: {
               title: {
                 display: true,
-                text: 'Year'
+                text: 'Year',
+                color: 'black'
+              },
+              ticks: {
+                color: 'black'
               }
             },
             y: {
               beginAtZero: false,
               title: {
                 display: true,
-                text: 'Population'
+                text: 'Population',
+                color: 'black'
+              },
+              ticks: {
+                color: 'black'
               }
             }
           },
@@ -82,11 +90,13 @@
               intersect: false
             },
             legend: {
-              display: true
+              display: true,
+              color: 'black'
             }
           }
         }
       });
     })();
   })();
+  
   
