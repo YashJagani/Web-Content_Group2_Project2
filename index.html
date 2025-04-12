@@ -11,9 +11,12 @@
     <div class="navbar-inner">
       <div class="navbar-brand">Population Charts</div>
       <ul class="navbar-buttons">
-        <li><button id="showLineChart" class="active">Line</button></li>
-        <li><button id="showBarChart">Bar</button></li>
-        <li><button id="showPieChart">Pie</button></li>
+        <li><button id="showLineChart" class="active">Line Chart</button></li>
+        <li><button id="showBarChart">Bar Chart</button></li>
+        <li><button id="showPieChart">Pie Chart</button></li>
+        <li><button id="showDoughnutChart">Doughnut Chart</button></li>
+        <li><button id="showRadarChart">Radar Chart</button></li>
+        <li><button id="showLollipopChart">Lollipop Chart</button></li>
       </ul>
     </div>
   </nav>
@@ -45,6 +48,9 @@
       showLineChart: 'js/lineChart.js',
       showBarChart: 'js/barChart.js',
       showPieChart: 'js/pieChart.js',
+      showDoughnutChart: 'js/doughnutChart.js',
+      showRadarChart: 'js/radarChart.js',
+      showLollipopChart: 'js/lollipopChart.js',
     };
 
     for (const id in chartButtons) {
