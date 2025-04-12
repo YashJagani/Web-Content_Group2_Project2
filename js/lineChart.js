@@ -50,7 +50,7 @@
         data: {
           labels: result.labels,
           datasets: [{
-            label: `Population of ${cityName} (2001–2011)`,
+            label: `Population of ${cityName} (2001-2011)`,
             data: result.data,
             borderColor: 'rgb(54, 162, 235)',
             backgroundColor: 'rgba(54, 162, 235, 0.2)',
@@ -68,20 +68,29 @@
               intersect: false
             },
             legend: {
-              display: true
+              display: true,
+              color: 'black'
             }
           },
           scales: {
             x: {
               title: {
                 display: true,
-                text: 'Year'
+                text: 'Year',
+                color: 'black'
+              },
+              ticks: {
+                color: 'black'
               }
             },
             y: {
               title: {
                 display: true,
-                text: 'Population'
+                text: 'Population',
+                color: 'black'
+              },
+              ticks: {
+                color: 'black'
               },
               beginAtZero: false
             }
@@ -90,4 +99,12 @@
       });
     })();
   })();
+
+  const msg = document.createElement('p');
+  msg.textContent = "Created by Yashkumar Jagani";
+  msg.style.color = 'black';
+  msg.style.textDecorationLine = 'underline';
+  msg.style.textAlign = 'center';
+  msg.style.marginTop = '20px';
+  document.querySelector('.container').appendChild(msg);
   
