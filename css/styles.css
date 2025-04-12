@@ -101,3 +101,11 @@ canvas.chart-canvas {
   font-size: 16px;
   color: #666;
 }
+
+.footer {
+  background: linear-gradient(to right, #89c2d9, #a9d6e5);
+  text-align: center;
+  color: black;
+   box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.08);
+  padding: 10px 0;
+}
