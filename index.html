@@ -7,21 +7,22 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-brand">Population Charts</div>
+      <ul class="navbar-buttons">
+        <li><button id="showLineChart" class="active">Line Chart</button></li>
+        <li><button id="showBarChart">Bar Chart</button></li>
+        <li><button id="showPieChart">Pie Chart</button></li>
+        <li><button id="showDoughnutChart">Doughnut Chart</button></li>
+        <li><button id="showRadarChart">Radar Chart</button></li>
+        <li><button id="showLollipopChart">Lollipop Chart</button></li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="container">
     <h1>Population of Kitchener-Cambridge-Waterloo (2001–2011)</h1>
-
-    <div class="button-group">
-      <button id="showLineChart" class="active">Line</button>
-      <button id="showBarChart">Bar</button>
-      <button id="showPieChart">Pie</button>
-      <button id="showDoughnutChart">Doughnut</button>
-      <button id="showRadarChart">Radar</button>
-      <button id="showPolarChart">Polar Area</button>
-      <button id="showLollipopChart">Lollipop</button>
-
-
-    </div>
-
     <canvas id="populationChart" class="chart-canvas"></canvas>
     <div class="loader" id="loader">Loading data...</div>
   </div>
@@ -41,7 +42,6 @@
       document.body.appendChild(script);
     }
 
-    // Initial Chart
     loadScript('js/lineChart.js');
 
     const chartButtons = {
@@ -50,10 +50,7 @@
       showPieChart: 'js/pieChart.js',
       showDoughnutChart: 'js/doughnutChart.js',
       showRadarChart: 'js/radarChart.js',
-      showPolarChart: 'js/polarChart.js',
       showLollipopChart: 'js/lollipopChart.js',
-
-
     };
 
     for (const id in chartButtons) {
@@ -64,9 +61,13 @@
     }
 
     function setActive(activeId) {
-      document.querySelectorAll(".button-group button").forEach(btn => btn.classList.remove("active"));
+      document.querySelectorAll(".navbar-buttons button").forEach(btn => btn.classList.remove("active"));
       document.getElementById(activeId).classList.add("active");
     }
   </script>
+  <footer class="footer">
+    <p>&copy; Group 2_Project 2_Web Content Management Systems. All rights reserved.</p>
+    <p>Group Members: Krin Shaileshkumar Patel, Yashkumar Jagani, Badmus Segun and Achanta Pruthvi</p>
+  </footer>
 </body>
 </html>
