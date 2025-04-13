@@ -1,0 +1,76 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f6fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    border-radius: 10px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  
+  .button-group {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .button-group button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button-group button.active,
+  .button-group button:hover {
+    background-color: #0056b3;
+  }
+  
+  #chart-container {
+    text-align: center;
+  }
+  
+  canvas {
+    margin: auto;
+    display: block;
+    max-width: 100%;
+  }
+  
+  .loader {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 20px;
+    color: #888;
+  }
+  #boxPlotChart,
+#polarChart {
+  margin: auto;
+  max-width: 800px;
+  height: auto;
+}
+
+#sankeyChart {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 960px;
+  height: 500px;
+  display: block;
+}
