@@ -4,6 +4,7 @@
   const cityName = "Kitchener-Cambridge-Waterloo";
   const apiUrl = "https://countriesnow.space/api/v0.1/countries/population/cities";
 
+  // get the population data from the api 
   const response = await fetch(apiUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -20,6 +21,7 @@
   const maxYear = 2011;
   const yearMap = new Map();
 
+  // fetch the one population data from the api
   result.data.populationCounts.forEach(entry => {
     const year = parseInt(entry.year);
     const value = parseInt(entry.value);
@@ -47,10 +49,12 @@
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
+  //display years on x axis
   const x = d3.scaleLinear()
     .domain(d3.extent(data, d => d.year))
     .range([0, width]);
 
+  //display population data on y axis
   const y = d3.scaleLinear()
     .domain([d3.min(data, d => d.population) * 0.95, d3.max(data, d => d.population) * 1.05])
     .range([height, 0]);
@@ -69,6 +73,7 @@
     .call(d3.axisLeft(y))
     .attr("color", "black");
 
+  // display labels on x axis
   svg.append("text")
     .attr("x", width / 2)
     .attr("y", height + 40)
@@ -76,6 +81,7 @@
     .attr("fill", "black")
     .text("Year");
 
+  // display labels on y axis
   svg.append("text")
     .attr("transform", "rotate(-90)")
     .attr("y", -50)
@@ -84,6 +90,7 @@
     .attr("fill", "black")
     .text("Population");
 
+  //display line according to the population
   svg.append("path")
     .datum(data)
     .attr("fill", "none")
