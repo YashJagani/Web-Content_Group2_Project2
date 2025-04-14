@@ -17,7 +17,6 @@
           <li><button id="showDoughnutChart">Doughnut Chart</button></li>
           <li><button id="showRadarChart">Radar Chart</button></li>
           <li><button id="showLollipopChart">Lollipop Chart</button></li>
-          <li><button id="showPolarAreaChart">Polar Area Chart</button></li>
           <li><button id="showBubbleChart">Bubble Chart</button></li>
           <li><button id="showStackedBarChart">Stacked Bar Chart</button></li>
         </ul>
@@ -29,7 +28,7 @@
       <canvas id="populationChart" class="chart-canvas"></canvas>
       <div class="loader" id="loader">Loading data...</div>
     </div>
-
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script>
       function loadScript(file) {
         if (
@@ -57,7 +56,6 @@
         showDoughnutChart: "js/doughnutChart.js",
         showRadarChart: "js/radarChart.js",
         showLollipopChart: "js/lollipopChart.js",
-        showPolarAreaChart: "js/polarAreaChart.js",
         showBubbleChart: "js/bubbleChart.js",
         showStackedBarChart: "js/stackedBarChart.js",
       };
