@@ -1,5 +1,6 @@
+/* DESIGNED BY KRIN SHAILESHKUMAR PATEL */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(to right, #89c2d9, #a9d6e5);
   margin: 0;
   padding: 0;
@@ -111,6 +112,7 @@ h1 {
   font-size: 12px;
   color: #000;
   opacity: 0;
+  transition: opacity 0.2s;
 }
 
 .footer {
