@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Population Charts - Kitchener-Cambridge-Waterloo</title>
+  <title>Population Charts of Kitchener-Cambridge-Waterloo</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
   <nav class="navbar">
@@ -14,25 +14,18 @@
         <li><button id="showLineChart" class="active">Line Chart</button></li>
         <li><button id="showBarChart">Bar Chart</button></li>
         <li><button id="showPieChart">Pie Chart</button></li>
-        <li><button id="showDoughnutChart">Doughnut Chart</button></li>
-        <li><button id="showRadarChart">Radar Chart</button></li>
-        <li><button id="showLollipopChart">Lollipop Chart</button></li>
       </ul>
     </div>
   </nav>
 
   <div class="container">
     <h1>Population of Kitchener-Cambridge-Waterloo (2001-2011)</h1>
-    <canvas id="populationChart" class="chart-canvas"></canvas>
+    <div id="populationChart" class="chart-canvas"></div>
     <div class="loader" id="loader">Loading data...</div>
   </div>
 
   <script>
     function loadScript(file) {
-      if (window.populationChart && typeof window.populationChart.destroy === "function") {
-        window.populationChart.destroy();
-      }
-
       const oldScript = document.getElementById('dynamicScript');
       if (oldScript) oldScript.remove();
 
@@ -48,9 +41,6 @@
       showLineChart: 'js/lineChart.js',
       showBarChart: 'js/barChart.js',
       showPieChart: 'js/pieChart.js',
-      showDoughnutChart: 'js/doughnutChart.js',
-      showRadarChart: 'js/radarChart.js',
-      showLollipopChart: 'js/lollipopChart.js',
     };
 
     for (const id in chartButtons) {
@@ -65,6 +55,7 @@
       document.getElementById(activeId).classList.add("active");
     }
   </script>
+
   <footer class="footer">
     <p>&copy; Group 2_Project 2_Web Content Management Systems. All rights reserved.</p>
     <p>Group Members: Krin Shaileshkumar Patel, Yashkumar Jagani, Badmus Segun and Achanta Pruthvi</p>
