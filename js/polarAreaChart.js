@@ -32,84 +32,93 @@
     const { labels, data } = await fetchCityPopulation(city);
     document.getElementById("loader").style.display = "none";
 
-    const ctx = document.getElementById("polarChart").getContext("2d");
+    const width = 500;
+    const height = 500;
+    const radius = Math.min(width, height) / 2;
 
-    new Chart(ctx, {
-      type: "polarArea",
-      data: {
-        labels: labels,
-        datasets: [{
-          label: `Population in ${city}`,
-          data: data,
-          backgroundColor: labels.map((_, i) => `hsl(${i * 30}, 70%, 60%)`),
-          borderColor: "#fff",
-          borderWidth: 2,
-          hoverBorderColor: "#000"
-        }]
-      },
-      options: {
-        responsive: true,
-        animation: {
-          animateRotate: true,
-          animateScale: true
-        },
-        plugins: {
-          title: {
-            display: true,
-            text: `Population Trend (2001-2011) for ${city}`,
-            font: {
-              size: 18,
-              weight: "bold"
-            },
-            padding: {
-              top: 10,
-              bottom: 30
-            }
-          },
-          tooltip: {
-            enabled: true,
-            callbacks: {
-              label: (context) => {
-                return `Population: ${context.raw.toLocaleString()}`;
-              }
-            }
-          },
-          legend: {
-            position: 'right',
-            labels: {
-              usePointStyle: true,
-              padding: 15,
-              color: '#333',
-              font: {
-                size: 12
-              }
-            }
-          }
-        },
-        scales: {
-          r: {
-            ticks: {
-              callback: function (value) {
-                return value >= 1000 ? (value / 1000) + "K" : value;
-              },
-              color: "#555"
-            },
-            grid: {
-              color: "#ddd"
-            },
-            angleLines: {
-              color: "#ccc"
-            },
-            pointLabels: {
-              color: "#222",
-              font: {
-                size: 13,
-                weight: "bold"
-              }
-            }
-          }
-        }
-      }
-    });
+    const svg = d3.select("#polarChart")
+      .attr("width", width)
+      .attr("height", height)
+      .append("g")
+      .attr("transform", `translate(${width / 2},${height / 2})`);
+
+    const angleSlice = Math.PI * 2 / labels.length;
+
+    const scale = d3.scaleLinear()
+      .domain([0, d3.max(data)])
+      .range([0, radius]);
+
+    const radarLine = d3.lineRadial()
+      .radius(d => scale(d))
+      .angle((d, i) => i * angleSlice);
+
+    const chartData = data.map(d => ({ value: d }));
+
+    svg.selectAll(".radar-area")
+      .data([chartData])
+      .enter().append("path")
+      .attr("class", "radar-area")
+      .attr("d", radarLine)
+      .style("fill", "rgba(0, 123, 255, 0.6)")
+      .style("stroke", "#007bff")
+      .style("stroke-width", 2);
+
+    const axis = svg.selectAll(".axis")
+      .data(labels)
+      .enter().append("g")
+      .attr("class", "axis")
+      .attr("transform", (d, i) => `rotate(${(i * 360) / labels.length})`)
+      .append("line")
+      .attr("x1", 0)
+      .attr("x2", 0)
+      .attr("y1", 0)
+      .attr("y2", -radius)
+      .style("stroke", "#ccc")
+      .style("stroke-width", 1);
+
+    const axisLabels = svg.selectAll(".axis-label")
+      .data(labels)
+      .enter().append("text")
+      .attr("class", "axis-label")
+      .attr("transform", (d, i) => `rotate(${(i * 360) / labels.length})`)
+      .attr("x", 10)
+      .attr("y", -radius - 10)
+      .style("text-anchor", "middle")
+      .text(d => d)
+      .style("fill", "#222")
+      .style("font-size", "12px");
+
+    svg.selectAll(".radar-circle")
+      .data(d3.range(1, 6))
+      .enter().append("circle")
+      .attr("class", "radar-circle")
+      .attr("r", d => radius / 5 * d)
+      .style("fill", "none")
+      .style("stroke", "#ddd")
+      .style("stroke-width", 1);
+
+    // Tooltip for population details
+    const tooltip = d3.select("body").append("div")
+      .attr("class", "tooltip")
+      .style("position", "absolute")
+      .style("background", "rgba(255,255,255,0.95)")
+      .style("border", "1px solid #ddd")
+      .style("border-radius", "4px")
+      .style("padding", "8px")
+      .style("opacity", 0);
+
+    svg.selectAll(".radar-area")
+      .on("mouseover", function (event, d) {
+        tooltip.transition().duration(200).style("opacity", 0.95);
+        tooltip.html(`
+          <strong>${city}</strong><br>
+          Population: ${d.value.toLocaleString()}
+        `)
+          .style("left", (event.pageX + 10) + "px")
+          .style("top", (event.pageY - 28) + "px");
+      })
+      .on("mouseout", function () {
+        tooltip.transition().duration(500).style("opacity", 0);
+      });
   })();
 })();
