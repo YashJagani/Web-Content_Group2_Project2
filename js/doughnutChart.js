@@ -49,8 +49,8 @@
     .range(data.map((_, i) => `hsl(${i * 30}, 70%, 60%)`));
 
   const arc = d3.arc()
-    .innerRadius(radius * 0.6) // doughnut effect
-    .outerRadius(radius);
+    .innerRadius(radius * 0.6) // doughnut effect  when it loads it gives spiral effect
+    .outerRadius(radius); 
 
   const pie = d3.pie()
     .value(d => d.population)
@@ -80,7 +80,7 @@
       tooltip.style("opacity", 0);
     });
 
-  // Legend title
+  // legend title
   svg.append("text")
     .attr("x", radius + 80)
     .attr("y", -radius + 10)
@@ -89,7 +89,7 @@
     .attr("font-size", 14)
     .text("Years");
 
-  // Legend
+  // legend
   const legend = svg.append("g")
     .attr("transform", `translate(${radius + 80}, ${-radius + 30})`);
 

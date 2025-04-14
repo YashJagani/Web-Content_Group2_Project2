@@ -48,7 +48,7 @@
   const angleSlice = (2 * Math.PI) / data.length;
   const maxValue = d3.max(data, d => d.population);
 
-  // Grid circles
+  // grid circles
   for (let level = 0; level < levels; level++) {
     const r = radius * ((level + 1) / levels);
     svg.append("circle")
@@ -58,7 +58,7 @@
       .attr("stroke-dasharray", "2,2");
   }
 
-  // Axes
+  // axis
   const axis = svg.selectAll(".axis")
     .data(data)
     .enter()
@@ -79,11 +79,11 @@
     .attr("text-anchor", "middle")
     .text(d => d.year);
 
-  // Tooltip div
+  // tooltip div
   const tooltip = d3.select("body").append("div")
     .attr("class", "tooltip");
 
-  // Radar line
+  // radar line
   const radarLine = d3.lineRadial()
     .radius(d => (d.population / maxValue) * radius)
     .angle((d, i) => i * angleSlice)
@@ -96,7 +96,7 @@
     .attr("stroke", "rgb(54, 162, 235)")
     .attr("stroke-width", 2);
 
-  // Points with hover
+  // points when hover
   svg.selectAll(".radar-dot")
     .data(data)
     .enter()
@@ -118,7 +118,7 @@
       d3.select(this).attr("r", 5);
     });
 
-  // Legend
+  // legend
   svg.append("rect")
     .attr("x", radius + 30)
     .attr("y", -radius)

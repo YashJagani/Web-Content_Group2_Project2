@@ -53,22 +53,22 @@
     .domain([0, d3.max(data, d => d.population) * 1.1])
     .range([height, 0]);
 
-  // X axis
+  // x-axis
   svg.append("g")
     .attr("transform", `translate(0,${height})`)
     .call(d3.axisBottom(x).tickFormat(d3.format("d")))
     .attr("color", "black");
 
-  // Y axis
+  // y-axis
   svg.append("g")
     .call(d3.axisLeft(y))
     .attr("color", "black");
 
-  // Tooltip
+  // tooltip so it shows legends when hover
   const tooltip = d3.select("body").append("div")
     .attr("class", "tooltip");
 
-  // Lollipop lines
+  // lollipop lines
   svg.selectAll("line.stem")
     .data(data)
     .enter()
@@ -80,7 +80,7 @@
     .attr("stroke", "rgba(100, 100, 100, 0.6)")
     .attr("stroke-width", 2);
 
-  // Lollipop circles
+  //  circles
   svg.selectAll("circle.dot")
     .data(data)
     .enter()
@@ -102,7 +102,7 @@
       tooltip.style("opacity", 0);
     });
 
-  // Axis labels
+  // axis labels
   svg.append("text")
     .attr("x", width / 2)
     .attr("y", height + 40)
