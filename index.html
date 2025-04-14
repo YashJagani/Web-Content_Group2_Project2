@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Interactive Data Visualizations</title>
-  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="./css//styles.css"/>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -14,12 +14,18 @@
   <div class="container">
     <h1>Data Visualizations</h1>
     <h3> Population Trend 2001 - 2011 (Kitchener-Cambridge-Waterloo) </h3>
-    <!-- Button group to switch between charts -->
-    <div class="button-group">
-      <button id="showBoxPlot" class="active">Box Plot</button>
-       <button id="showSankeyDiagram">Sankey Diagram</button> 
-      <button id="showPolarChart">Polar Area Chart</button>
-    </div>
+    
+
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <div class="navbar-brand">Population Charts</div>
+        <ul class="navbar-buttons">
+          <li><button id="showBoxPlot">Box Plot</button></li>
+          <li><button id="showSankeyDiagram">Sankey Diagram</button></li>
+          <li><button id="showPolarChart">Polar Area Chart</button></li>
+        </ul>
+      </div>
+    </nav>
 
     <!-- Canvas for charts -->
     <div id="chart-container">
