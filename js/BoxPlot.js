@@ -1,3 +1,4 @@
+//designed by Badmus Segun
 async function fetchPopulationData() {
     try {
         const response = await fetch("https://countriesnow.space/api/v0.1/countries/population/cities", {

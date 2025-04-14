@@ -1,3 +1,4 @@
+//designed by Badmus Segun
 async function drawSankeyDiagram() {
   const svg = d3.select("#sankey");
   const width = +svg.attr("width");
