@@ -1,3 +1,4 @@
+<!-- DESIGNED BY KRIN SHAILESHKUMAR PATEL -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +12,6 @@
     <div class="navbar-inner">
       <div class="navbar-brand">Population Charts</div>
       <ul class="navbar-buttons">
-        <li><button id="showLineChart" class="active">Line Chart</button></li>
-        <li><button id="showBarChart">Bar Chart</button></li>
-        <li><button id="showPieChart">Pie Chart</button></li>
         <li><button id="showDoughnutChart">Doughnut Chart</button></li>
         <li><button id="showRadarChart">Radar Chart</button></li>
         <li><button id="showLollipopChart">Lollipop Chart</button></li>
@@ -38,12 +36,10 @@
       document.body.appendChild(script);
     }
 
-    loadScript('js/lineChart.js');
+    loadScript('js/doughnutChart.js');
 
     const chartButtons = {
-      showLineChart: 'js/lineChart.js',
-      showBarChart: 'js/barChart.js',
-      showPieChart: 'js/pieChart.js',
+     
       showDoughnutChart: 'js/doughnutChart.js',
       showRadarChart: 'js/radarChart.js',
       showLollipopChart: 'js/lollipopChart.js',
