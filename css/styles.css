@@ -1,0 +1,122 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #89c2d9, #a9d6e5);
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  width: 100%;
+  background: linear-gradient(to right, #89c2d9, #a9d6e5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.navbar-brand {
+  font-size: 25px;
+  font-weight: bolder;
+  color: black;
+  text-shadow: 0px 1px 2px gray;
+}
+
+.navbar-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  gap: 12px;
+}
+
+.navbar-buttons li {
+  margin: 0;
+}
+
+.navbar-buttons button {
+  padding: 10px 18px;
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-buttons button:hover {
+  background-color: #1b263b;
+  color: white;
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+.navbar-buttons button.active {
+  background-color: #1b263b;
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3);
+}
+
+.container {
+  background-color: #ffffff;
+  color: black;
+  width: 90%;
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.chart-canvas {
+  margin-top: 20px;
+  max-width: 100%;
+  height: auto;
+  overflow-x: auto;
+}
+
+.loader {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #666;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  pointer-events: none;
+  font-size: 12px;
+  color: #000;
+  opacity: 0;
+}
+
+.footer {
+  background: linear-gradient(to right, #89c2d9, #a9d6e5);
+  text-align: center;
+  color: black;
+  box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.08);
+  padding: 10px 0;
+}
